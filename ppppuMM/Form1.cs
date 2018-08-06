@@ -60,7 +60,8 @@ namespace ppppuMM
             {
                 Directory.CreateDirectory("./presets");
             }
-            File.Copy("./ModsList.txt", "./presets/.default.txt", true);
+            if(File.Exists("./ModsList.txt"))
+                File.Copy("./ModsList.txt", "./presets/.default.txt", true);
             
             LoadMods(".default", true);
         }
