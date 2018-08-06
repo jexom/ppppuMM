@@ -175,8 +175,14 @@ namespace ppppuMM
         private void buttonLaunch_Click(object sender, EventArgs e)
         {
             saveFile("ModsList", false);
-            Process.Start("flashplayer_30_sa.exe", "ppppuXi.swf");
-            Application.Exit();
+            if (File.Exists("flashplayer_30_sa.exe"))
+            {
+                Process.Start("flashplayer_30_sa.exe", "ppppuXi.swf");
+                Application.Exit();
+            } else
+            {
+                MessageBox.Show("No flashplayer_30_sa.exe found in folder!", "File not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonModUp_Click(object sender, EventArgs e)
