@@ -17,7 +17,8 @@ namespace ppppuMM
             foreach (string nmod in files)
             {
                 string mod = nmod.Remove(0, 2);
-                if (mod.IndexOf("ACHAR_") == 0 || mod.IndexOf("ARCH_") == 0 || mod.IndexOf("M_") == 0 || mod.IndexOf("M_") == 0)
+                if ((mod.IndexOf("ACHAR_") == 0 || mod.IndexOf("ARCH_") == 0 || mod.IndexOf("M_") == 0 || mod.IndexOf("M_") == 0) &&
+                    mod != "ARCH_BaseAssets.swf")
                 {
                     mods.Add(mod);
                 }
