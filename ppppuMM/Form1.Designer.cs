@@ -43,6 +43,7 @@
             this.buttonModDown = new System.Windows.Forms.Button();
             this.buttonModUp = new System.Windows.Forms.Button();
             this.buttonDelPreset = new System.Windows.Forms.Button();
+            this.buttonHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // uListBox
@@ -215,11 +216,23 @@
             this.buttonDelPreset.UseVisualStyleBackColor = true;
             this.buttonDelPreset.Click += new System.EventHandler(this.buttonDelPreset_Click);
             // 
+            // buttonHelp
+            // 
+            this.buttonHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonHelp.Location = new System.Drawing.Point(435, 610);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(130, 50);
+            this.buttonHelp.TabIndex = 18;
+            this.buttonHelp.Text = "Help";
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 737);
+            this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.buttonDelPreset);
             this.Controls.Add(this.buttonModDown);
             this.Controls.Add(this.buttonModUp);
@@ -241,7 +254,7 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "PPPPU Mod Manager v1.0.1";
+            this.Text = "PPPPU Mod Manager v1.0.2";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -265,6 +278,7 @@
         private System.Windows.Forms.Button buttonModDown;
         private System.Windows.Forms.Button buttonModUp;
         private System.Windows.Forms.Button buttonDelPreset;
+        private System.Windows.Forms.Button buttonHelp;
     }
 }
 

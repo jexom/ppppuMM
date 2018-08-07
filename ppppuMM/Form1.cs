@@ -8,6 +8,7 @@ namespace ppppuMM
 {
     public partial class Form1 : Form
     {
+        RTFM rtfm = new RTFM();
         private void LoadMods(string filename, bool preset)
         {
             uListBox.Items.Clear();
@@ -57,8 +58,17 @@ namespace ppppuMM
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            if (!File.Exists("ppppuXi.swf"))
+            {
+                MessageBox.Show("No ppppuXi.swf found in folder! Have you put the modmanager into your PPPPU folder?",
+                        "File not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+
+            
             if (!Directory.Exists("./presets"))
             {
+                rtfm.ShowDialog();
                 Directory.CreateDirectory("./presets");
             }
             if(File.Exists("./ModsList.txt"))
@@ -218,6 +228,12 @@ namespace ppppuMM
             if (File.Exists("./presets/" + comboPreset.Text + ".txt"))
                 File.Delete("./presets/" + comboPreset.Text + ".txt");
             comboPreset.Text = "";
+        }
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            rtfm = new RTFM();
+            rtfm.ShowDialog();
         }
     }
 }
