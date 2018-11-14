@@ -44,6 +44,9 @@
             this.buttonModUp = new System.Windows.Forms.Button();
             this.buttonDelPreset = new System.Windows.Forms.Button();
             this.buttonHelp = new System.Windows.Forms.Button();
+            this.previewButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // uListBox
@@ -57,6 +60,7 @@
             this.uListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.uListBox.Size = new System.Drawing.Size(400, 559);
             this.uListBox.TabIndex = 0;
+            this.uListBox.SelectedIndexChanged += new System.EventHandler(this.uListBox_SelectedIndexChanged);
             // 
             // uMods
             // 
@@ -89,6 +93,7 @@
             this.lListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.lListBox.Size = new System.Drawing.Size(400, 559);
             this.lListBox.TabIndex = 2;
+            this.lListBox.SelectedIndexChanged += new System.EventHandler(this.lListBox_SelectedIndexChanged);
             // 
             // buttonLoad
             // 
@@ -219,19 +224,42 @@
             // buttonHelp
             // 
             this.buttonHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonHelp.Location = new System.Drawing.Point(435, 610);
+            this.buttonHelp.Location = new System.Drawing.Point(426, 619);
             this.buttonHelp.Name = "buttonHelp";
-            this.buttonHelp.Size = new System.Drawing.Size(130, 50);
+            this.buttonHelp.Size = new System.Drawing.Size(236, 50);
             this.buttonHelp.TabIndex = 18;
             this.buttonHelp.Text = "Help";
             this.buttonHelp.UseVisualStyleBackColor = true;
             this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            // 
+            // previewButton
+            // 
+            this.previewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.previewButton.Location = new System.Drawing.Point(426, 675);
+            this.previewButton.Name = "previewButton";
+            this.previewButton.Size = new System.Drawing.Size(236, 50);
+            this.previewButton.TabIndex = 19;
+            this.previewButton.Text = "Preview";
+            this.previewButton.UseVisualStyleBackColor = true;
+            this.previewButton.Click += new System.EventHandler(this.previewButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(1092, 50);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(606, 675);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 737);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.previewButton);
             this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.buttonDelPreset);
             this.Controls.Add(this.buttonModDown);
@@ -254,8 +282,9 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "PPPPU Mod Manager v1.0.2";
+            this.Text = "PPPPU Mod Manager v2";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,6 +308,8 @@
         private System.Windows.Forms.Button buttonModUp;
         private System.Windows.Forms.Button buttonDelPreset;
         private System.Windows.Forms.Button buttonHelp;
+        private System.Windows.Forms.Button previewButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

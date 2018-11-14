@@ -17,34 +17,25 @@ namespace ppppuMM
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            label3.Visible = true;
-            if (!(label3.Text == "<- Did you? Answer me") || (!label3.Enabled))
-            {
-                label3.Enabled = true;
-                label3.Text = "<- Did you? Answer me";
-                return;
-            }
-            if(label3.Text == "<- Did you? Answer me" && label3.Enabled)
-            {
-                label3.Text = "Well read it then";
-            }
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
-            label3.Visible = true;
-            if (!(label3.Text == "<- Did you? Answer me") || (!label3.Enabled))
-            {
-                label3.Enabled = true;
-                label3.Text = "Well read it then";
-                return;
-            }
-            if(label3.Text == "<- Did you? Answer me")
-            {
-                this.Close();
-            }
+            //label3.Visible = true;
+            //if (!(label3.Text == "<- Did you? Answer me") || (!label3.Enabled))
+            //{
+            //    label3.Enabled = true;
+            //    label3.Text = "Well read it then";
+            //    return;
+            //}
+            //if(label3.Text == "<- Did you? Answer me")
+            //{
+            //    this.Close();
+            //}
+            Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

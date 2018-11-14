@@ -117,12 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label1.Text" xml:space="preserve">
-    <value>This file should be located in your PPPPU folder. If you managed to launch it outside of it then you're a wizard and have my respect. The package includes a copy of Flash Player 30 Standalone so make sure to drop it into the folder too.
-To create a preset load all the mods you want by selecting them from the left list and clicking the "&gt;" button, enter the name of the preset into the text field and press "Save". 
-To delete a preset select it in the list and click delete, it's that simple. 
-Multiselect by holding Shift or Ctrl is also supported.
-You can also change the order of the mods, although the type sorting is done by the manager itself. For this select a mod you want to move in the right list and click the up/down buttons.
-To make this no longer show up type "Ok" in "RTFM.txt" file in "presets" folder.</value>
-  </data>
 </root>

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace ppppuMM
 {
     public partial class Form1 : Form
     {
+        Boolean preview = false;
         RTFM rtfm = new RTFM();
         private void LoadMods(string filename, bool preset)
         {
@@ -66,10 +68,22 @@ namespace ppppuMM
             }
 
             
-            if (!Directory.Exists("./presets"))
+            if (!Directory.Exists("./presets") || !File.Exists("./presets/.RTFM.txt"))
+            {
+                Directory.CreateDirectory("./presets");
+                File.WriteAllText("./presets/.RTFM.txt", "");
+            }
+
+            if (!Directory.Exists("./presets/previews"))
+            {
+                Directory.CreateDirectory("./presets/previews");
+            }
+
+            string[] rtfmtxt = File.ReadAllLines("./presets/.RTFM.txt");
+            while (rtfmtxt.Length < 1 || rtfmtxt[0].ToLower() != "ok")
             {
                 rtfm.ShowDialog();
-                Directory.CreateDirectory("./presets");
+                rtfmtxt = File.ReadAllLines("./presets/.RTFM.txt");
             }
             if(File.Exists("./ModsList.txt"))
                 File.Copy("./ModsList.txt", "./presets/.default.txt", true);
@@ -234,6 +248,70 @@ namespace ppppuMM
         {
             rtfm = new RTFM();
             rtfm.ShowDialog();
+        }
+
+        private void previewButton_Click(object sender, EventArgs e)
+        {
+            if (preview)
+            {
+                Form1.ActiveForm.Width = Form1.ActiveForm.Width - (pictureBox1.Width + 20);
+                preview = false;
+            }
+            else
+            {
+                preview = true;
+                Form1.ActiveForm.Width = Form1.ActiveForm.Width + (pictureBox1.Width + 20);
+            }
+
+            string name = "";
+            if (lListBox.SelectedIndex != -1)
+            {
+                name = lListBox.SelectedItem.ToString().Split('.')[0];
+            }
+            else if (uListBox.SelectedIndex != -1)
+            {
+                name = uListBox.SelectedItem.ToString().Split('.')[0];
+            }
+            if (name != "" && File.Exists("./presets/previews/" + name + ".png")) {
+                pictureBox1.Image = new Bitmap("./presets/previews/" + name + ".png");
+            } else
+            {
+                pictureBox1.Image = pictureBox1.InitialImage;
+            }
+        }
+
+        private void lListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string name = "";
+            if (lListBox.SelectedIndex != -1)
+            {
+                name = lListBox.SelectedItem.ToString().Split('.')[0];
+            }
+            if (name != "" && File.Exists("./presets/previews/" + name + ".png"))
+            {
+                pictureBox1.Image = new Bitmap("./presets/previews/" + name + ".png");
+            }
+            else
+            {
+                pictureBox1.Image = pictureBox1.InitialImage;
+            }
+        }
+
+        private void uListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string name = "";
+            if (uListBox.SelectedIndex != -1)
+            {
+                name = uListBox.SelectedItem.ToString().Split('.')[0];
+            }
+            if (name != "" && File.Exists("./presets/previews/" + name + ".png"))
+            {
+                pictureBox1.Image = new Bitmap("./presets/previews/" + name + ".png");
+            }
+            else
+            {
+                pictureBox1.Image = pictureBox1.InitialImage;
+            }
         }
     }
 }
